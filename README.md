@@ -24,6 +24,8 @@ To get started, you can import the mortality data. The example below calculates 
 - loading for 60+ = 1.2
 - select period = 5 years
 
+**Note: Columns in your mortality table for age and mortality rate should be labelled as "Age" and "qx" respectively. **
+
 ```R
 library(readxl)
 #Data source : https://aga.gov.au/publications/life-tables/australian-life-tables-2020-22
@@ -52,13 +54,13 @@ Likewise, a rate less than 1 can be applied in this age range if the assumption 
 
 When a select period is chosen,  during this period the mortality rate from given data is reduced relative to age: 
 
-$$ q_x_new = q_x_old * adjustment factor$$
+$$ q_{x_{new}} = q_{x_{old}} * adjustment Factor$$
 
-$$ adjustment factor = 0.98 * e^(-k * age) = 0.98 * e^(-0.02 * age)$$
+$$ adjustment Factor = 0.98 * e^{-k * age} = 0.98 * e^{-0.02 * age}$$
 
-A greater improvement in mortality is shown for younger ages compared to older ages based on the assumption that although medical underwriting would've occurred prior to the select period establishment, older people are statistically more likely to develop health issues. However, to account for the occurrence of underwriting the difference of improvement between these two groups is chosen not to be too high.  
+A greater improvement in mortality is shown for younger ages compared to older ages based on the assumption that although medical underwriting would've occurred prior to the select period establishment, older people are statistically more likely to develop health issues. However, to account for the occurrence of underwriting the difference of improvement between these two groups is chosen not to be too high. See details in the plot below.  
 
-![Mortality Plot - Tuning](kRplot.png)
+![](kRplot.png)
 
 ### In-Built Age Warning
 
@@ -67,6 +69,7 @@ The function will automatically return a incompatibility message if the age of t
 
 ## Authors and License
 
-Author: Akansha Kumar | akanshas.kumar4@gmail.com
-Licence: This package is licensed under the MIT License. You are free to use, modify, and distribute the software, provided the terms of the MIT License are met. For details, see the LICENSE file included in this package.
+**Author:**  Akansha Kumar | akanshas.kumar4@gmail.com
+
+**Licence:** This package is licensed under the MIT License. You are free to use, modify, and distribute the software, provided the terms of the MIT License are met. For details, see the LICENSE file included in this package.
 
