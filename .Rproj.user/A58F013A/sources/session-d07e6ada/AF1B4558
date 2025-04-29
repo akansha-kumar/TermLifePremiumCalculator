@@ -3,24 +3,24 @@
     "path": "C:/Users/akans/OneDrive/Documents/TermLifePremiumCalculator/R/TermLifePremium.R",
     "project_path": "R/TermLifePremium.R",
     "type": "r_source",
-    "hash": "2949766121",
+    "hash": "0",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1745727441264.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "23,0",
-        "scrollLine": "9"
+        "cursorPosition": "13,25",
+        "scrollLine": "2"
     },
     "folds": "",
-    "lastKnownWriteTime": 1745896641,
+    "lastKnownWriteTime": 1745897038,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1745896641687,
+    "last_content_update": 1745897689091,
     "read_only": false,
     "read_only_alternatives": []
 }

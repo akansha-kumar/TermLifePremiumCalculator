@@ -1,4 +1,4 @@
-TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, max_interest, policy_term, old_age_loading){
+TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, max_interest, policy_term, old_age_loading, select_period){
   #null results outside mortality data age range
   end_age <- age + policy_term
   if(end_age > max(mortality_data$Age) | age < min(mortality_data$Age)){
