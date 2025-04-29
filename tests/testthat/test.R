@@ -3,7 +3,12 @@ library(readxl)
 mortality_data <- read_excel("test_data/australian-life-tables-2020-22_0.xlsx")
 head(mortality_data)#all columns have proper column names as for premium calculator function
 
+#check age in-built warning
+TermLifePremium(mortality_data, 100000, max(mortality_data$Age)+1, 0.05, 0.05, 0, 10, 1, 0)
+TermLifePremium(mortality_data, 100000, min(mortality_data$Age)-1, 0.05, 0.05, 0, 10, 1, 0)
+
 #All tests below should produce output "TRUE". [A uniform interest rate it used]
+
 
 #check if loading increase increases premium:
 a <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 0, 10, 1, 0)$NetPremium #no loading
