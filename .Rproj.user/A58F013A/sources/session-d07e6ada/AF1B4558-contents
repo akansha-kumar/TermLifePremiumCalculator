@@ -1,4 +1,4 @@
-TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, max_interest, policy_term, old_age_loading, select_period){
+TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, max_interest, inflation, policy_term, old_age_loading, select_period){
   #null results outside mortality data age range
   end_age <- age + policy_term
   if(end_age > max(mortality_data$Age) | age < min(mortality_data$Age)){
@@ -16,7 +16,8 @@ TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, 
         qx <- qx * old_age_loading
       }
       discount_factor <- (1+(min_interest + (max_interest - min_interest) * runif(1)))^(-year)
-      PV <- benefit_amount*qx*discount_factor #PV of benefit at specific year
+      #inclusion of inflation to benefit amount
+      PV <- (benefit_amount*(1 + inflation)^year)*qx*discount_factor #PV of benefit at specific year
       net_premium <- net_premium + PV #accumulating PV over policy term
       age <- age + 1 #increment age for next year of policy term
     }
