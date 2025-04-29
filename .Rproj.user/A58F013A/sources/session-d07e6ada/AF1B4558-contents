@@ -1,7 +1,7 @@
 TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, max_interest, inflation, policy_term, old_age_loading, select_period){
   #null results outside mortality data age range
   end_age <- age + policy_term
-  if(end_age > max(mortality_data$Age) | age < min(mortality_data$Age)){
+  if(end_age > max(mortality_table$Age) | age < min(mortality_table$Age)){
     print("Incompatiable Age Range")
   }  else {
     #initialise premium to 0
@@ -10,7 +10,7 @@ TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, 
     interest_rates <- c()
     #premium calculation - sum PV of benefit cost in each year
     for(year in 1:policy_term){
-      qx <- as.numeric(mortality_data[mortality_data$Age == age,"qx"])#mortality_rate
+      qx <- as.numeric(mortality_table[mortality_table$Age == age,"qx"])#mortality_rate
       if(year < select_period){ #lower/select rates apply here
         qx <- qx * 0.98 * exp(age*-0.02) #adjustment relative to age
       }
