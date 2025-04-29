@@ -33,10 +33,10 @@ mortality_data <- read_excel("test/test_data/australian-life-tables-2020-22_0.xl
 head(mortality_data) #Ensure columns a properly named ("Age" and mortality rates as "qx")
 
 #Utilising the function
-info <- TermLifePremium(mortality_data, 100000, 52, 0.01, 0.05, 0.01, 10, 1.2, 5)
+result <- TermLifePremium(mortality_data, 100000, 52, 0.01, 0.05, 0.01, 10, 1.2, 5)
 #Extracting the net premium and the interest rates for each year separately
-info$NetPremium
-info$InterestRates
+result$NetPremium
+result$InterestRates
 ```
 
 ## Features 

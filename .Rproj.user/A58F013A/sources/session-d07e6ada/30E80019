@@ -3,7 +3,7 @@
     "path": "C:/Users/akans/OneDrive/Documents/TermLifePremiumCalculator/man/TermLifePremium.Rd",
     "project_path": "man/TermLifePremium.Rd",
     "type": "r_doc",
-    "hash": "0",
+    "hash": "2805039078",
     "contents": "",
     "dirty": false,
     "created": 1745727936466.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "10,20",
-        "scrollLine": "0"
+        "cursorPosition": "42,28",
+        "scrollLine": "30"
     },
     "folds": "",
-    "lastKnownWriteTime": 1745728068,
+    "lastKnownWriteTime": 1745909248,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1745728068146,
+    "last_content_update": 1745909248435,
     "read_only": false,
     "read_only_alternatives": []
 }
