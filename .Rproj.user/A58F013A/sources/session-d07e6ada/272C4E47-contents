@@ -53,7 +53,8 @@ Likewise, a rate less than 1 can be applied in this age range if the assumption 
 When a select period is chosen,  during this period the mortality rate from given data is reduced relative to age: 
 
 $$ q_x_new = q_x_old * adjustment factor$$
-$$ adjustment factor = 0.98 * exp(-k * age) = 0.98 * exp(-0.02 * age)$$
+
+$$ adjustment factor = 0.98 * e^(-k * age) = 0.98 * e^(-0.02 * age)$$
 
 A greater improvement in mortality is shown for younger ages compared to older ages based on the assumption that although medical underwriting would've occurred prior to the select period establishment, older people are statistically more likely to develop health issues. However, to account for the occurrence of underwriting the difference of improvement between these two groups is chosen not to be too high.  
 
