@@ -69,7 +69,7 @@ The function will automatically return a incompatibility message if the age of t
 
 ## Authors and License
 
-**Author:**  Akansha Kumar | akanshas.kumar4@gmail.com
+**Author:**  Akansha Kumar 
 
 **Licence:** This package is licensed under the MIT License. You are free to use, modify, and distribute the software, provided the terms of the MIT License are met. For details, see the LICENSE file included in this package.
 
