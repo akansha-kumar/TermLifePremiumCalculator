@@ -29,7 +29,7 @@ To get started, you can import the mortality data. The example below calculates 
 ```R
 library(readxl)
 #Data source : https://aga.gov.au/publications/life-tables/australian-life-tables-2020-22
-mortality_data <- read_excel("test/test_data/australian-life-tables-2020-22_0.xlsx")
+mortality_data <- read_excel("tests/testthat/test_data/australian-life-tables-2020-22_0.xlsx")
 head(mortality_data) #Ensure columns a properly named ("Age" and mortality rates as "qx")
 
 #Utilising the function
@@ -60,7 +60,7 @@ $$ adjustment Factor = 0.98 * e^{-k * age} = 0.98 * e^{-0.02 * age}$$
 
 A greater improvement in mortality is shown for younger ages compared to older ages based on the assumption that although medical underwriting would've occurred prior to the select period establishment, older people are statistically more likely to develop health issues. However, to account for the occurrence of underwriting the difference of improvement between these two groups is chosen not to be too high. See details in the plot below.  
 
-![](kRplot.png)
+![](man/figures/kRplot.png)
 
 ### In-Built Age Warning
 

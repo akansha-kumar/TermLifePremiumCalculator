@@ -9,7 +9,6 @@ TermLifePremium(mortality_data, 100000, min(mortality_data$Age)-1, 0.05, 0.05, 0
 
 #All tests below should produce output "TRUE". [A uniform interest rate it used]
 
-
 #check if loading increase increases premium:
 a <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 0, 10, 1, 0)$NetPremium #no loading
 a1 <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 0, 10, 1.3, 0)$NetPremium #loading
@@ -41,17 +40,17 @@ legend("topright", legend = paste("k =", k), inset = c(-0.4, 0), xpd = TRUE,
        col = colors, lwd = 2, cex = 0.8, title = "Steepness Factor")
 
 #Notes:
-  #smaller k values (steeper) results in a sharper adjustment to mortality for younger ages
-  #larger k value results in a smaller difference between the improvement in mortality for young/old ages
-  #other option is an equal adjustment across all ages (k=0)
+#smaller k values (steeper) results in a sharper adjustment to mortality for younger ages
+#larger k value results in a smaller difference between the improvement in mortality for young/old ages
+#other option is an equal adjustment across all ages (k=0)
 #Assumption:
-  #Although the select period length can impact the select rate used, the model ignores it for simplicity
-  #As people get older they are more likely to develop health issues and hence more
-  #likely to die during the term they are insured.
-  #However, a large difference in mortality adjustment would not account for the fact that select periods
-  #are backed by medical underwriting results
-  #Since we also have a loading applied for older ages (60+), the giant reduction
-  #in mortality rate from ages 85+ is not an issue when selecting k
+#Although the select period length can impact the select rate used, the model ignores it for simplicity
+#As people get older they are more likely to develop health issues and hence more
+#likely to die during the term they are insured.
+#However, a large difference in mortality adjustment would not account for the fact that select periods
+#are backed by medical underwriting results
+#Since we also have a loading applied for older ages (60+), the giant reduction
+#in mortality rate from ages 85+ is not an issue when selecting k
 #Taking these into consideration, a value of 0.02 for the steepness of mortality adjustment is used.
 
 

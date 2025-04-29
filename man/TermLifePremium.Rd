@@ -2,7 +2,8 @@
 \alias{TermLifePremium}
 \title{Premium Calculator}
 \usage{
-TermLifePremium()
+TermLifePremium(mortality_table, benefit_amount, age, min_interest,
+max_interest, inflation, policy_term, old_age_loading, select_period)
 }
 \description{
 This function calculates the premium for a term life insurance product
@@ -16,6 +17,7 @@ and other policy details.
   \item{age}{Current age of the insured.}
   \item{min_interest}{Minimum interest rate for discounting.}
   \item{max_interest}{Maximum interest rate for discounting.}
+  \item{inflation}{Inflation rate to be applied on benefit amount}
   \item{policy_term}{Policy term in years.}
   \item{old_age_loading}{Numeric adjustment factor for older ages.}
   \item{select_period}{Duration of the select mortality period (e.g., 3 years).}
@@ -26,7 +28,12 @@ and other policy details.
 
 library(readxl)
 #Data source : https://aga.gov.au/publications/life-tables/australian-life-tables-2020-22
-mortality_data <- read_excel("test_data/australian-life-tables-2020-22_0.xlsx")
+
+mortality_data <- readxl::read_excel(
+    system.file("extdata", "australian-life-tables-2020-22_0.xlsx"
+    , package = "TermLifePremiumCalculator")
+)
+
 
 result <- TermLifePremium(
   mortality_table = mortality_data,
@@ -40,7 +47,7 @@ result <- TermLifePremium(
   select_period = 5)
 
 #Extracting net premium
-TermLifePremium()$NetPremium
+result$NetPremium
 #Extracting interest rates for each policy year
-TermLifePremium()$InterestRates
+result$InterestRates
 }

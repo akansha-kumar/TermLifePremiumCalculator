@@ -5,7 +5,9 @@ Version: 0.1.0
 Author: Akansha Kumar
 Maintainer: The package maintainer <akanshas.kumar4@gmail.com>
 Description: Facilitates accurate premium calculations for term life insurance products based on given mortality data. It includes general factor inputs such benefit amount, age of the client, interest rate boundaries, inflation, the policy term (in years), the loading factor for clients over 60 years anytime during the policy and a selection period (in years).  
-License: MIT License
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
+Imports:
+    readxl
