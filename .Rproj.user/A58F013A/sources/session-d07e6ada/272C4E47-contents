@@ -6,6 +6,11 @@ This package facilitates accurate premium calculations for term life insurance p
 
 ## Installation
 
+### GitHub
+```R
+install.packages("devtools")
+devtools::install_github("akansha-kumar/TermLifePremiumCalculator")
+```
 
 ## Usuage 
 
@@ -58,14 +63,6 @@ A greater improvement in mortality is shown for younger ages compared to older a
 
 The function will automatically return a incompatibility message if the age of the insured is outside the age range of the given mortality data at any year of the policy term. This helps users to identify and resolve such an issue efficiently without spending unnecessary time troubleshooting. 
 
-
-## Installation
-
-### GitHub
-```R
-install.packages("devtools")
-devtools::install_github("akansha-kumar/TermLifePremiumCalculator")
-```
 
 ## Authors and License
 
