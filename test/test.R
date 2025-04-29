@@ -6,17 +6,17 @@ head(mortality_data)#all columns have proper column names as for premium calcula
 #All tests below should produce output "TRUE". [A uniform interest rate it used]
 
 #check if loading increase increases premium:
-a <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1) #no loading
-a1 <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1.3) #loading
+a <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1, 0) #no loading
+a1 <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1.3, 0) #loading
 a1 > a
 #check that loading doesn't apply in case where insured turns 60 at end of term
-b <- TermLifePremium(mortality_data, 100000, 50, 0.05, 0.05, 10, 1)
-b1 <- TermLifePremium(mortality_data, 100000, 50, 0.05, 0.05, 10, 1.3)
+b <- TermLifePremium(mortality_data, 100000, 50, 0.05, 0.05, 10, 1, 0)
+b1 <- TermLifePremium(mortality_data, 100000, 50, 0.05, 0.05, 10, 1.3, 0)
 b1 == b
 #check that interest rate is stochastic between given boundaries
 premium_list <- c()
 for(i in 1:100){
-  premium_list[i] <- TermLifePremium(mortality_data, 150000, 32, 0.01, 0.05, 15, 1.2)
+  premium_list[i] <- TermLifePremium(mortality_data, 150000, 32, 0.01, 0.05, 15, 1.2, 0)
 }
 plot(premium_list) #premium is random given random interest rates
 
@@ -48,3 +48,21 @@ legend("topright", legend = paste("k =", k), inset = c(-0.4, 0), xpd = TRUE,
   #Since we also have a loading applied for older ages (60+), the giant reduction
   #in mortality rate from ages 85+ is not an issue when selecting k
 #Taking these into consideration, a value of 0.02 for the steepness of mortality adjustment is used.
+
+
+#checks for select rates input
+
+#with and without select period (no loading)
+s_1 <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1, 5) #w/ select period
+s_2 <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1, 0) #w/o select period
+s_1 < s_2
+#how select period impact premiums when loading is applied
+s_3 <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1.2, 5) #w/ select period
+s_4 <- TermLifePremium(mortality_data, 100000, 52, 0.05, 0.05, 10, 1.2, 0) #w/o select period
+rel_change <- (s_4-s_3)/s_3*100 #30% higher premium without select period
+#how select period impact premiums when loading isn't applied
+rel_change2 <- (s_2-s_1)/s_1*100 #31% higher premium without select period
+#good news: loading still has an impact on the premium
+s_3 > s_1
+s_4 > s_2
+
