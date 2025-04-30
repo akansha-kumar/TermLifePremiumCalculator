@@ -11,7 +11,7 @@ TermLifePremium <- function(mortality_table, benefit_amount, age, min_interest, 
     #premium calculation - sum PV of benefit cost in each year
     for(year in 1:policy_term){
       qx <- as.numeric(mortality_table[mortality_table$Age == age,"qx"])#mortality_rate
-      if(year < select_period){ #lower/select rates apply here
+      if(year <= select_period){ #lower/select rates apply here
         qx <- qx * 0.98 * exp(age*-0.02) #adjustment relative to age
       }
       if(age>=60){#loading applies when insured >= 60 only (standard loading age)
